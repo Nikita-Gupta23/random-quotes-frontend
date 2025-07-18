@@ -1,35 +1,44 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect} from 'react'
 import './RandomQuote.css'
 
 const RandomQuote = () => {
-    let quotes = [];
 
-    async function loadQuotes() {
-        const response = await fetch("https://random-quotes-backend2.onrender.com/api/quotes/random/")
-        quotes = await response.json();
-    }
     const [quote, setQuote] = useState({
         quote: "Where there is a will, there is a way",
         author: "Anonymous"
     });
-    const random = () => {
-        const select = quotes[Math.floor(Math.random() * quotes.length)];
-        setQuote(select);
+
+     const fetchQuote = async () => {
+    try {
+      const response = await fetch("https://random-quotes-backend2.onrender.com/api/quotes/random/");
+      if (!response.ok) {
+        throw new Error("Failed to fetch quote");
+      }
+      const data = await response.json();
+      setQuote(data);
+    } catch (error) {
+      console.error("Error fetching quote:", error);
     }
-    const share = () => {
-        window.open(`https://twitter.com/intent/tweet?text=${quote.quote} - ${quote.author.split(',')[0]}`)
-    }
-    loadQuotes();
+  };
+  
+  const share = () => {
+    window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(`"${quote.text}" - ${quote.author}`)}`);
+  };
+
+      useEffect(() => {
+    fetchQuote(); // Load a random quote initially
+  }, []);
+
     return (
         <>
         <div className="container">
-            <div className="quote">{quote.quote}</div>
+            <div className="quote">{quote.text}</div>
             <div>
                 <div className="line"></div>
                 <div className="bottom">
-                    <div className="author">By- {quote.author.split(',')[0]}</div>
+                    <div className="author">By- {quote.author}</div>
                     <div className="icons">
-                        <button onClick={random}>New Quote</button>
+                        <button onClick={fetchQuote}>New Quote</button>
                         <button onClick={share}>Share</button>
                     </div>
                 </div>
