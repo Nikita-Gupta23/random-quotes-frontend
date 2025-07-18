@@ -5,7 +5,7 @@ const RandomQuote = () => {
     let quotes = [];
 
     async function loadQuotes() {
-        const response = await fetch("http://127.0.0.1:8000/api/quotes/random/")
+        const response = await fetch("https://random-quotes-backend2.onrender.com/api/quotes/random/")
         quotes = await response.json();
     }
     const [quote, setQuote] = useState({
