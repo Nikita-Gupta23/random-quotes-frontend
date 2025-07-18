@@ -1,33 +1,48 @@
-# 📝 Random Quote Generator
+# 🪄 Random Quotes Machine — Frontend
 
-Live Demo 👉[https://random-quotes-machine-nine.vercel.app/]
+A clean, responsive **React.js** application that displays inspirational quotes fetched from a custom Django backend API.
 
-## 📌 Overview
-A simple and elegant React-based app that fetches motivational quotes from an API and displays them dynamically. With every click, a new quote is shown — along with smooth background color transitions — to keep the experience fresh and engaging.
+> 🌐 Live demo: [random-quotes-frontend.vercel.app](https://random-quotes-frontend.vercel.app/)
 
-## ⚙️ Tech Stack
+---
 
-- **React.js** – UI rendering and state management
-- **JavaScript (ES6)** – Logic and API handling
-- **CSS** – Styling and transitions
-- **Quote API** – For fetching random motivational quotes
-- **Vercel** – For deployment
+## 🧰 Tech Stack
 
-## ✨ Features
+- ⚛️ React.js
+- 🎨 CSS (custom styling)
+- 🌐 Hosted on [Vercel](https://vercel.com)
 
-- 🔄 Generates a new random quote on each button click
-- 🎨 Changes background color dynamically for visual appeal
-- 🐦 Includes "Tweet Quote" button for direct social media sharing
-- 📱 Fully responsive for mobile and desktop
+---
 
-## 🛠️ Installation & Setup
+## 🔗 API Endpoint
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/Nikita-Gupta23/random-quote-generator.git
-   cd random-quote-generator
+Quotes are fetched from a custom backend:
 
-🙋‍♀️ Author
-Nikita Gupta
-📧 nik23.gupta@gmail.com
-🔗 GitHub | LinkedIn
+https://random-quotes-backend2.onrender.com/api/quotes/random/
+
+---
+
+## 🚀 Features
+
+- 🔁 Get a random quote on page load
+- 🎲 "New Quote" button fetches a fresh quote
+- 🐦 "Share" button opens Twitter intent with the quote
+- 💻 Fully responsive layout
+- 🎨 Simple, accessible UI with dark mode
+
+---
+
+## 🛠️ Getting Started Locally
+
+```bash
+git clone https://github.com/Nikita-Gupta23/random-quotes-frontend.git
+cd random-quotes-frontend
+npm install
+npm start
+Make sure your backend is running and CORS is properly configured.
+```
+---
+
+## 🧠 Author
+
+- Made with 💜 by Nikita Gupta
